@@ -8,6 +8,9 @@
         <div class="control has-icons-left">
           <form>
             <input class="input is-small" type="text" name="pokemonSearche" placeholder="Nom du Pokemon" [(ngModel)]="formSearchPokemon.nom">
+            <span class="icon is-small is-left">
+              <fa-icon [icon]="faOptinMonster"></fa-icon>
+            </span>
             <a class=" button is-primary" (click)="rechercher(formSearchPokemon.nom)">Rechercher</a>
             <a class=" button is-danger" (click)="annuler()">Annuler</a>
           </form>
