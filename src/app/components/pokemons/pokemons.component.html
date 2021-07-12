@@ -1,7 +1,19 @@
 <div class="container">
   <h2>Les 6 premiers pokémons :</h2>
   <hr>
+  <p>{{count}} dans la base de données</p>
   <div class="columns">
+    <div class=" column is-two-third">
+      <div class="field has-addons">
+        <div class="control has-icons-left">
+          <form>
+            <input class="input is-small" type="text" name="pokemonSearche" placeholder="Nom du Pokemon" [(ngModel)]="formSearchPokemon.nom">
+            <a class=" button is-primary" (click)="rechercher(formSearchPokemon.nom)">Rechercher</a>
+            <a class=" button is-danger" (click)="annuler()">Annuler</a>
+          </form>
+        </div>
+      </div>
+    </div>
     <div class="column">
       <p>Dans l'ordre du Pokédex :</p>
       <p *ngIf="select">Le pokémon selectionné est : {{select.nom}}</p>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PokemonsService } from './../../services/pokemons.service';
-import { Pokemon } from 'src/app/models/pokemon';
+import { FormSearchPokemon } from './../../models/form-search-pokemon';
 
 @Component({
   selector: 'app-pokemons',
@@ -12,12 +12,22 @@ export class PokemonsComponent implements OnInit {
   pokemons: any;
   count = 0;
 
+  formSearchPokemon = new FormSearchPokemon("")
+
   constructor(private servicePokemon: PokemonsService) {}
 
   ngOnInit(): void {
-    this.pokemons = this.servicePokemon.getPokemon()
+    this.pokemons = this.servicePokemon.getPokemons()
     this.count = this.servicePokemon.countPokemon()
   }
 
+  rechercher(nomDuPokemon:string){
+    this.pokemons = this.servicePokemon.rechercherPokemon(nomDuPokemon)
+  }
+
+  annuler(){
+    this.pokemons = this.servicePokemon.getPokemons()
+    this.formSearchPokemon.setNom('')
+  }
 
 }

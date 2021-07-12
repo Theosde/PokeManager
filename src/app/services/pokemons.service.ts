@@ -62,10 +62,17 @@ export class PokemonsService {
   ]
   constructor() { }
 
-  getPokemon(){
+  getPokemons(){
     return this.pokemons
   }
   countPokemon(){
     return this.pokemons.length
   }
+
+  rechercherPokemon(nomDuPokemon:string){
+    let regex = new RegExp(nomDuPokemon,'gi')
+    return this.pokemons.filter(pokemon => pokemon.nom.match(regex))
+  }
+
+
 }

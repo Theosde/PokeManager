@@ -9,7 +9,9 @@ import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localFR from "@angular/common/locales/fr";
-import { PokemonComponent } from './components/pokemon/pokemon.component'
+import { PokemonComponent } from './components/pokemon/pokemon.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localFR)
 
@@ -22,6 +24,8 @@ registerLocaleData(localFR)
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [{provide:LOCALE_ID, useValue:"fr"}],
