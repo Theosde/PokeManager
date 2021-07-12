@@ -17,6 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { CreationComponent } from './components/compte/creation/creation.component';
 import { ConnexionComponent } from './components/compte/connexion/connexion.component';
 
+import {HttpClientModule} from "@angular/common/http"
+
 registerLocaleData(localFR)
 
 @NgModule({
@@ -34,6 +36,7 @@ registerLocaleData(localFR)
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
     FontAwesomeModule
   ],
   providers: [{provide:LOCALE_ID, useValue:"fr"}],
