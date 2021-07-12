@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Les 6 premiers pokémons :</h2>
+  <hr>
+  <div class="columns">
+    <div class="column">
+      <p>Dans l'ordre du Pokédex :</p>
+    </div>
+  </div>
+  <div class="columns is-multiline">
+    <ul class="menu-list column is-one-third " *ngFor="let pokemon of pokemons">
+      <li>
+        <app-pokemon [pokemon]=pokemon></app-pokemon>
+      </li>
+
+    </ul>
+  </div>
+</div>
