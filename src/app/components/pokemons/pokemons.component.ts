@@ -14,6 +14,7 @@ export class PokemonsComponent implements OnInit {
   count = 0;
   formSearchPokemon = new FormSearchPokemon("")
   faOptinMonster = faOptinMonster;
+  easterEggs = false
 
   constructor(private servicePokemon: PokemonsService) {}
 
@@ -24,6 +25,10 @@ export class PokemonsComponent implements OnInit {
 
   rechercher(nomDuPokemon:string){
     this.pokemons = this.servicePokemon.rechercherPokemon(nomDuPokemon)
+    this.easterEggs = false
+    if(nomDuPokemon === "C3PO"){
+      this.easterEggs = true
+    }
   }
 
   annuler(){

@@ -4,23 +4,35 @@
   <p>{{count}} dans la base de données</p>
   <div class="columns">
     <div class=" column is-two-third">
+      <form #form="ngForm" >
       <div class="field has-addons">
         <div class="control has-icons-left">
-          <form>
-            <input class="input is-small" type="text" name="pokemonSearche" placeholder="Nom du Pokemon" [(ngModel)]="formSearchPokemon.nom">
+            <input
+              class="input is-small"
+              type="text"
+              name="pokemonSearche"
+              placeholder="Nom du Pokemon"
+              [(ngModel)]="formSearchPokemon.nom"
+              pattern="[a-zA-Z 3]*"
+              [class.is-danger]="form.invalid"
+            />
             <span class="icon is-small is-left">
               <fa-icon [icon]="faOptinMonster"></fa-icon>
             </span>
-            <a class=" button is-primary" (click)="rechercher(formSearchPokemon.nom)">Rechercher</a>
-            <a class=" button is-danger" (click)="annuler()">Annuler</a>
-          </form>
+            <div *ngIf="form.invalid" class="tag is-danger">Le champ de saisie ne peut contenir que des lettres.</div>
+            <div *ngIf="easterEggs">
+              <img src="https://media.giphy.com/media/3o7bu1nVSxNQUWMAZa/giphy.gif" alt="">
+            </div>
+          </div>
+          <a class=" button is-primary is-small" (click)="rechercher(formSearchPokemon.nom)" [class.is-danger]="form.invalid">Rechercher</a>
+          <a class=" button is-danger is-small" (click)="annuler()" >Annuler</a>
         </div>
-      </div>
+      </form>
     </div>
-    <div class="column">
-      <p>Dans l'ordre du Pokédex :</p>
-      <p *ngIf="select">Le pokémon selectionné est : {{select.nom}}</p>
-    </div>
+  </div>
+  <div class="column">
+    <p>Dans l'ordre du Pokédex :</p>
+    <p *ngIf="select">Le pokémon selectionné est : {{select.nom}}</p>
   </div>
   <div class="columns is-multiline">
     <ul class="menu-list column is-one-third " *ngFor="let pokemon of pokemons">
