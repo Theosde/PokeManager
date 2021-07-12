@@ -1,5 +1,5 @@
 <ul class="menu-list">
-  <img src="{{pokemon.img}}" alt="" (click)="clickSurImage(pokemon.nom)" >
+  <img src="{{pokemon.img}}" alt="{{pokemon.nom}}" (click)="clickSurImage()" >
   <li>{{pokemon.nom}}</li>
   <ul class="menu-list">
     <li>Catégorie :<span *ngIf="pokemon.categorie;else na">{{pokemon.categorie}}</span> </li>

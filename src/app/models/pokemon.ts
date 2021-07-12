@@ -6,6 +6,6 @@ export class Pokemon {
  categorie!: string;
  type!: [string];
  taille!: number;
- poid!: number;
+ poids!: number;
 
 }

@@ -4,14 +4,14 @@
   <div class="columns">
     <div class="column">
       <p>Dans l'ordre du Pokédex :</p>
+      <p *ngIf="select">Le pokémon selectionné est : {{select.nom}}</p>
     </div>
   </div>
   <div class="columns is-multiline">
     <ul class="menu-list column is-one-third " *ngFor="let pokemon of pokemons">
       <li>
-        <app-pokemon [pokemon]=pokemon></app-pokemon>
+        <app-pokemon [pokemon]=pokemon (select)="select=$event" ></app-pokemon>
       </li>
-
     </ul>
   </div>
 </div>
